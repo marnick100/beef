@@ -8,9 +8,9 @@
 #gem 'simplecov', require: false, group: :test
 gem 'eventmachine'
 gem 'thin'
-gem 'sinatra', '>= 2.0.2'
-gem 'rack', '>= 2.2.3'
-gem 'rack-protection', '>= 2.0.0'
+gem 'sinatra', '>= 2.2.0'
+gem 'rack', '>= 2.2.3.1'
+gem 'rack-protection', '>= 2.2.0'
 gem 'em-websocket' # WebSocket support
 gem 'uglifier', '>= 2.7.2'
 gem 'mime-types'
@@ -21,7 +21,7 @@ gem 'json'
 gem 'rubyzip', '>= 1.2.2'
 gem 'espeak-ruby', '>= 1.0.4' # Text-to-Voice
 gem 'rake', '>= 12.3.3'
-gem 'otr-activerecord', '>= 1.4.2'
+gem 'otr-activerecord', '>= 2.1.1'
 gem 'sqlite3'
 gem 'rubocop', '~> 1.25.1', require: false
 
