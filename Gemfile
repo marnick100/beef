@@ -21,7 +21,7 @@ gem 'json'
 gem 'rubyzip', '>= 1.2.2'
 gem 'espeak-ruby', '>= 1.0.4' # Text-to-Voice
 gem 'rake', '>= 12.3.3'
-gem 'otr-activerecord', '>= 1.4.2'
+gem 'otr-activerecord', '>= 2.1.2'
 gem 'sqlite3'
 gem 'rubocop', '~> 1.25.1', require: false
 
