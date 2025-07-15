@@ -7,10 +7,10 @@
 #
 #gem 'simplecov', require: false, group: :test
 gem 'eventmachine'
-gem 'thin'
-gem 'sinatra', '>= 2.0.2'
+gem 'thin', '>= 2.0.0'
+gem 'sinatra', '>= 2.2.1'
 gem 'rack', '>= 2.2.3'
-gem 'rack-protection', '>= 2.0.0'
+gem 'rack-protection', '>= 2.2.1'
 gem 'em-websocket' # WebSocket support
 gem 'uglifier', '>= 2.7.2'
 gem 'mime-types'
@@ -21,7 +21,7 @@ gem 'json'
 gem 'rubyzip', '>= 1.2.2'
 gem 'espeak-ruby', '>= 1.0.4' # Text-to-Voice
 gem 'rake', '>= 12.3.3'
-gem 'otr-activerecord', '>= 1.4.2'
+gem 'otr-activerecord', '>= 2.1.2'
 gem 'sqlite3'
 gem 'rubocop', '~> 1.25.1', require: false
 
@@ -36,7 +36,7 @@ gem 'erubis'
 # Metasploit Integration extension
 group :ext_msf do
   gem 'msfrpc-client'
-  gem 'xmlrpc'
+  gem 'xmlrpc', '>= 0.3.3'
 end
 
 # Notifications extension
@@ -64,18 +64,18 @@ group :test do
     gem 'test-unit'
     gem 'test-unit-full'
     gem 'rspec'
-    gem 'rdoc'
+    gem 'rdoc', '>= 6.4.1.1'
     # curb gem requires curl libraries
     # sudo apt-get install libcurl4-openssl-dev
     gem 'curb'
     # selenium-webdriver 3.x is incompatible with Firefox version 48 and prior
     # gem 'selenium' # Requires old version of selenium which is no longer available
     gem 'geckodriver-helper'
-    gem 'selenium-webdriver'
+    gem 'selenium-webdriver', '>= 4.2.0'
     # nokogirl is needed by capybara which may require one of the below commands
     # sudo apt-get install libxslt-dev libxml2-dev
     # sudo port install libxml2 libxslt
-    gem 'capybara'
+    gem 'capybara', '>= 3.37.0'
     # RESTful API tests/generic command module tests
     gem 'rest-client', '>= 2.0.1'
     gem 'irb'
