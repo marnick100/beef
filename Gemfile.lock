@@ -1,18 +1,27 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.2.2)
-      activesupport (= 7.0.2.2)
-    activerecord (7.0.2.2)
-      activemodel (= 7.0.2.2)
-      activesupport (= 7.0.2.2)
-    activesupport (7.0.2.2)
+    activemodel (7.1.5.1)
+      activesupport (= 7.1.5.1)
+    activerecord (7.1.5.1)
+      activemodel (= 7.1.5.1)
+      activesupport (= 7.1.5.1)
+      timeout (>= 0.4.0)
+    activesupport (7.1.5.1)
+      base64
+      benchmark (>= 0.3)
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
       minitest (>= 5.1)
+      mutex_m
+      securerandom (>= 0.3)
       tzinfo (~> 2.0)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
@@ -25,10 +34,13 @@ GEM
       async-io (~> 1.15)
     async-io (1.32.2)
       async
+    base64 (0.3.0)
+    benchmark (0.4.1)
+    bigdecimal (3.2.2)
     browserstack-local (1.3.0)
     buftok (0.2.0)
     byebug (11.1.3)
-    capybara (3.36.0)
+    capybara (3.39.2)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -37,20 +49,25 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    childprocess (4.1.0)
+    cgi (0.5.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.3)
     console (1.13.1)
       fiber-local
     curb (1.0.0)
     daemons (1.4.1)
+    date (3.4.1)
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    drb (2.2.3)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     equalizer (0.0.11)
+    erb (4.0.4)
+      cgi (>= 0.3.3)
     erubis (2.7.0)
     espeak-ruby (1.0.5)
     event_emitter (0.2.6)
@@ -78,14 +95,15 @@ GEM
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
-    i18n (1.10.0)
+    i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.5.9)
     io-like (0.3.1)
     irb (1.4.1)
       reline (>= 0.3.0)
     json (2.6.1)
-    matrix (0.4.2)
+    logger (1.7.0)
+    matrix (0.4.3)
     maxmind-db (1.1.1)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -93,24 +111,25 @@ GEM
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.1115)
-    mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
+    minitest (5.25.5)
     mojo_magick (0.6.6)
     msfrpc-client (1.1.2)
       msgpack (~> 1)
     msgpack (1.4.2)
     multipart-post (2.1.1)
-    mustermann (1.1.1)
+    mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
+    mutex_m (0.3.0)
     naught (1.1.0)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.3)
-      mini_portile2 (~> 2.8.0)
+    nokogiri (1.15.7)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    otr-activerecord (2.1.1)
-      activerecord (>= 4.0, < 7.1)
+    otr-activerecord (2.2.0)
+      activerecord (>= 4.0, < 7.2)
       hashie-forbidden_attributes (~> 0.1)
     parallel (1.21.0)
     parseconfig (1.1.2)
@@ -123,23 +142,30 @@ GEM
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
-    psych (4.0.3)
+    psych (5.2.6)
+      date
       stringio
-    public_suffix (4.0.6)
+    public_suffix (5.1.1)
     qr4r (0.6.1)
       mojo_magick (~> 0.6.5)
       rqrcode_core (~> 0.1)
-    racc (1.6.0)
-    rack (2.2.3)
-    rack-protection (2.2.0)
-      rack
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    racc (1.8.1)
+    rack (3.1.16)
+    rack-protection (4.1.1)
+      base64 (>= 0.1.0)
+      logger (>= 1.6.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.1.1)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0)
+    rack-test (2.2.0)
+      rack (>= 1.3)
     rainbow (3.1.1)
     rake (13.0.6)
-    rdoc (6.4.0)
+    rdoc (6.14.2)
+      erb
       psych (>= 4.0.0)
-    regexp_parser (2.2.1)
+    regexp_parser (2.10.0)
     reline (0.3.0)
       io-console (~> 0.5)
     rest-client (2.1.0)
@@ -147,7 +173,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.5)
+    rexml (3.4.1)
     rqrcode_core (0.2.0)
     rr (3.0.7)
     rspec (3.11.0)
@@ -176,23 +202,26 @@ GEM
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
-    rubyzip (2.3.2)
+    rubyzip (2.4.1)
     rushover (0.3.0)
       json
       rest-client
-    selenium-webdriver (4.1.0)
-      childprocess (>= 0.5, < 5.0)
+    securerandom (0.3.2)
+    selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     simple_oauth (0.3.1)
-    sinatra (2.2.0)
-      mustermann (~> 1.0)
-      rack (~> 2.2)
-      rack-protection (= 2.2.0)
+    sinatra (4.1.1)
+      logger (>= 1.6.0)
+      mustermann (~> 3.0)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.1.1)
+      rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
     slack-notifier (2.4.0)
     sqlite3 (1.4.2)
-    stringio (3.0.1)
+    stringio (3.1.7)
     sync (0.5.0)
     term-ansicolor (1.7.1)
       tins (~> 1.0)
@@ -213,12 +242,14 @@ GEM
       test-unit (>= 2.5.2)
     test-unit-runner-tap (1.1.2)
       test-unit
-    thin (1.8.1)
+    thin (2.0.1)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
+      logger
+      rack (>= 1, < 4)
     thread_safe (0.3.6)
-    tilt (2.0.10)
+    tilt (2.6.1)
+    timeout (0.4.3)
     timers (4.3.3)
     tins (1.29.1)
       sync
@@ -233,7 +264,7 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -241,12 +272,12 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (2.1.0)
-    webrick (1.7.0)
+    webrick (1.9.1)
     websocket (1.2.9)
     websocket-client-simple (0.5.1)
       event_emitter
       websocket
-    xmlrpc (0.3.2)
+    xmlrpc (0.3.3)
       webrick
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -258,7 +289,7 @@ DEPENDENCIES
   ansi
   async-dns
   browserstack-local (~> 1.3)
-  capybara
+  capybara (>= 3.37.0)
   curb
   em-websocket
   erubis
@@ -271,31 +302,31 @@ DEPENDENCIES
   maxmind-db
   mime-types
   msfrpc-client
-  otr-activerecord (>= 1.4.2)
+  otr-activerecord (>= 2.1.2)
   parseconfig
   pry-byebug
   qr4r
   rack (>= 2.2.3)
-  rack-protection (>= 2.0.0)
+  rack-protection (>= 2.2.1)
   rake (>= 12.3.3)
-  rdoc
+  rdoc (>= 6.4.1.1)
   rest-client (>= 2.0.1)
   rspec
   rubocop (~> 1.25.1)
   rubyzip (>= 1.2.2)
   rushover
-  selenium-webdriver
-  sinatra (>= 2.0.2)
+  selenium-webdriver (>= 4.2.0)
+  sinatra (>= 2.2.1)
   slack-notifier
   sqlite3
   term-ansicolor
   test-unit
   test-unit-full
-  thin
+  thin (>= 2.0.0)
   twitter (>= 5.0.0)
   uglifier (>= 2.7.2)
   websocket-client-simple (~> 0.5.1)
-  xmlrpc
+  xmlrpc (>= 0.3.3)
 
 BUNDLED WITH
    2.1.4
